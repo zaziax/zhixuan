@@ -154,7 +154,7 @@ json
 - GET `/api/stats` - 获取统计数据
 - POST `/api/stats/increment` - 增加页面访问统计
 
-
+.
 ├── client # 前端代码
 │ ├── public # 静态资源
 │ ├── src # 源代码
@@ -172,9 +172,6 @@ json
 │ └── types # 类型定义
 └── package.json
 
-## 许可证
-
-MIT License
 
 ## 其它信息
 本项目完全由ai生成。
