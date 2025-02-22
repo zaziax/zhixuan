@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 增强玻璃质感 */
+.glassmorphism {
+  @apply p-12 rounded-3xl 
+         backdrop-blur-[20px]
+         bg-gradient-to-br from-white/50 via-white/40 to-white/30
+         border border-white/50
+         shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]
+         transition-shadow duration-300;
+}
+
+.glassmorphism::before {
+  content: '';
+  @apply absolute inset-0 
+         bg-gradient-to-br from-white/40 via-transparent to-white/20
+         opacity-0 transition-all duration-700 ease-out;
+}
+
+.glassmorphism:hover::before {
+  @apply opacity-100;
+}
+
+/* 添加光晕效果 */
+.glassmorphism::after {
+  content: '';
+  @apply absolute inset-0 
+         bg-gradient-to-br from-white/5 via-transparent to-white/10
+         opacity-0 transition-all duration-700 ease-out
+         blur-xl;
+  transform: translateY(100%);
+}
+
+.glassmorphism:hover::after {
+  @apply opacity-100;
+  transform: translateY(0);
+}
+
+/* 新的背景动画 */
+.animated-bg {
+  @apply fixed inset-0 overflow-hidden -z-10;
+}
+
+.floating-shape {
+  @apply absolute rounded-full mix-blend-screen filter blur-[100px] opacity-60;
+  animation: floatAnimation 25s infinite;
+}
+
+.shape-1 {
+  @apply bg-purple-200;
+  width: 70vw;
+  height: 70vw;
+  top: -35%;
+  right: -20%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  @apply bg-pink-200;
+  width: 65vw;
+  height: 65vw;
+  bottom: -30%;
+  left: -20%;
+  animation-delay: -7s;
+}
+
+.shape-3 {
+  @apply bg-indigo-200;
+  width: 80vw;
+  height: 80vw;
+  top: 30%;
+  left: 20%;
+  animation-delay: -14s;
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(2%, 2%) rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: translate(-1%, 3%) rotate(-2deg) scale(0.95);
+  }
+  75% {
+    transform: translate(1%, -2%) rotate(3deg) scale(1.02);
+  }
+}
+
+/* 卡片内容动画 */
+.card-content {
+  @apply relative z-10 transition-all duration-700 ease-out;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.glassmorphism:hover .card-content {
+  @apply translate-y-[-2px];
+}
+
+/* 标题动画 */
+.card-content h2 {
+  @apply transition-all duration-700 ease-out;
+}
+
+.glassmorphism:hover .card-content h2 {
+  @apply scale-[1.02] translate-x-1;
+}
+
+/* 描述文字动画 */
+.card-content p {
+  @apply transition-all duration-700 ease-out opacity-80;
+}
+
+.glassmorphism:hover .card-content p {
+  @apply opacity-100 translate-x-1;
+}
+
+body {
+  @apply bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50 min-h-screen relative;
+}
+
+/* 微妙的背景纹理 */
+.bg-pattern {
+  background-image: 
+    linear-gradient(45deg, rgba(0,0,0,0.01) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(0,0,0,0.01) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+}
+
+.card {
+  @apply p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow;
+}
+
+/* 添加到现有样式文件末尾 */
+.tarot-card {
+  @apply transition-all duration-500 ease-out
+         backdrop-blur-md bg-white/30
+         border border-white/50
+         hover:bg-white/40 hover:shadow-lg;
+}
+
+.tarot-card.selected {
+  @apply ring-2 ring-purple-500/50 scale-105
+         bg-white/40 shadow-lg;
+}
+
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+textarea:focus {
+  @apply outline-none ring-2 ring-purple-500/30;
+}
+
+/* 导航栏样式 */
+.nav-link {
+  @apply relative text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 
+         bg-gradient-to-r from-purple-500 to-pink-500
+         transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+/* 调整主内容区域 */
+.main-content {
+  @apply pt-16; /* 为固定导航栏留出空间 */
+}
+
+/* 添加到现有样式中 */
+.grid-cols-13 {
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+  .grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+
+/* 添加到现有样式中 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.rotate-y-360 {
+  transform: rotateY(360deg);
+}
+
+/* 优化卡牌动画性能 */
+.hover-active {
+  transform: translateY(-2rem) scale(1.1) !important;
+}
+
+/* 使用硬件加速 */
+.absolute {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@layer utilities {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(139, 92, 246, 0.3);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(139, 92, 246, 0.5);
+  }
+
+  /* 隐藏水平滚动条 */
+  .custom-scrollbar::-webkit-scrollbar-horizontal {
+    display: none;
+  }
+
+  /* 隐藏滚动条但保持滚动功能 */
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: auto;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  
+  /* 增强 Markdown 样式 */
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose h1, .prose h2, .prose h3 {
+    @apply bg-gradient-to-r from-purple-700 to-purple-900 
+           bg-clip-text text-transparent font-bold
+           border-b border-purple-100 pb-2 mb-4;
+  }
+  
+  .prose p {
+    @apply text-gray-700 mb-4 leading-relaxed;
+  }
+  
+  .prose strong {
+    @apply text-purple-700 font-semibold;
+  }
+  
+  .prose em {
+    @apply text-pink-600 not-italic font-medium;
+  }
+  
+  .prose ul {
+    @apply space-y-2 my-4;
+  }
+  
+  .prose ol {
+    @apply space-y-2 my-4;
+  }
+  
+  .prose li {
+    @apply text-gray-700 leading-relaxed;
+  }
+  
+  .prose li::marker {
+    @apply text-purple-500;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-purple-300 pl-4 my-6 
+           italic text-gray-600 bg-purple-50/50 
+           py-3 rounded-r-lg;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 rounded px-1.5 py-0.5 
+           text-purple-600 text-sm font-mono;
+  }
+  
+  .prose pre {
+    @apply bg-gray-50 rounded-lg p-4 my-4 
+           overflow-x-auto border border-gray-100;
+  }
+  
+  .prose table {
+    @apply w-full border-collapse my-6;
+  }
+  
+  .prose th {
+    @apply bg-purple-50 text-purple-900 
+           font-semibold p-2 border border-purple-100;
+  }
+  
+  .prose td {
+    @apply p-2 border border-purple-100;
+  }
+  
+  .prose hr {
+    @apply my-8 border-t-2 border-purple-100;
+  }
+}
+
+/* 添加静态玻璃拟态效果 */
+.glassmorphism-static {
+  @apply p-12 rounded-3xl 
+         backdrop-blur-[20px]
+         bg-gradient-to-br from-white/50 via-white/40 to-white/30
+         border border-white/50
+         shadow-[0_8px_32px_0_rgba(31,38,135,0.2)];
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+} 
