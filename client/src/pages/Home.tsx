@@ -134,6 +134,15 @@ function Home() {
         >
           统计
         </Link>
+        {/* 开源地址 */}
+        <a 
+          href="https://github.com/zaziax/zhixuan" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-sm text-gray-400 hover:text-gray-600 transition-colors duration-300"
+        > 
+          开源
+        </a>
       </div>
     </div>
   );
