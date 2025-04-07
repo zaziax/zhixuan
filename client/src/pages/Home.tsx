@@ -134,6 +134,7 @@ function Home() {
         >
           统计
         </Link>
+        <span>--</span>
         {/* 开源地址 */}
         <a 
           href="https://github.com/zaziax/zhixuan" 
