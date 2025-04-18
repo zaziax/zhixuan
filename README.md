@@ -37,7 +37,6 @@
 ### 后端
 - Node.js
 - Express
-- Redis
 - OpenAI API / DeepSeek API
 
 ## 必要配置
@@ -45,19 +44,16 @@
 ### 环境变量
 
 1. 后端配置 (server/.env):
-env
-服务器配置
+```env
+# 服务器配置
 PORT=3000
-
-Redis配置
-REDIS_HOST=localhost
-REDIS_PORT=6379
-
-AI API配置
-OPENAI_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
-OPENAI_API_KEY=your_api_key
+NODE_ENV=development
 
 
+
+# AI API配置
+ARK_API_KEY=your_api_key
+```
 
 2. 前端配置 (client/.env):
 env
@@ -77,9 +73,6 @@ npm install
 安装前端依赖
 cd ../client
 npm install
-
-3. 启动redis
-
 
 4. 启动开发服务器
 bash

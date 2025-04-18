@@ -1,7 +1,6 @@
 import OpenAI from 'openai';
 import { Request, Response } from 'express';
 import { aiConfig } from '../config/config';
-import redis from '../config/redis';
 
 const client = new OpenAI({
   apiKey: aiConfig.apiKey,
@@ -27,8 +26,7 @@ interface HexagramData {
 
 export const getIChingDivination = async (req: Request, res: Response) => {
   try {
-    // 增加周易调用次数统计
-    await redis.incr('iching_calls');
+
     
     const { question, hexagram } = req.body as { 
       question: string; 

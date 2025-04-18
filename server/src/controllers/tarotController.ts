@@ -1,7 +1,6 @@
 import OpenAI from 'openai';
 import { Request, Response } from 'express';
 import { aiConfig } from '../config/config';
-import redis from '../config/redis';
 
 const client = new OpenAI({
   apiKey: aiConfig.apiKey,
@@ -17,8 +16,6 @@ export const getTarotReading = async (req: Request, res: Response) => {
   res.setHeader('Connection', 'keep-alive');
 
   try {
-    // 增加塔罗牌调用次数统计
-    await redis.incr('tarot_calls');
     
     const prompt = `作为一位专业的塔罗牌解读师，请为以下问题进行解读：
 问题：${question}
