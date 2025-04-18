@@ -4,9 +4,7 @@ import { rateLimit } from 'express-rate-limit';
 import path from 'path';
 import tarotRoutes from './routes/tarotRoutes';
 import ichingRoutes from './routes/ichingRoutes';
-import statsRoutes from './routes/statsRoutes';
 import { serverConfig, rateLimitConfig } from './config/config';
-import { initializeStats } from './controllers/statsController';
 
 const app = express();
 
@@ -20,10 +18,9 @@ app.use(rateLimit(rateLimitConfig));
 // API路由
 app.use('/api/tarot', tarotRoutes);
 app.use('/api/iching', ichingRoutes);
-app.use('/api/stats', statsRoutes);
 
 // 处理前端路由
-app.get(['/', '/tarot', '/iching', '/stats'], (req, res, next) => {
+app.get(['/', '/tarot', '/iching'], (req, res, next) => {
   if (req.path.startsWith('/api/')) {
     next();
     return;
@@ -37,11 +34,9 @@ app.get(['/', '/tarot', '/iching', '/stats'], (req, res, next) => {
   }
 });
 
-app.listen(serverConfig.port, async () => {
+app.listen(serverConfig.port, () => {
   console.log(`服务器运行在 http://localhost:${serverConfig.port}`);
   console.log(`当前环境: ${serverConfig.nodeEnv}`);
-  
-  await initializeStats();
 });
 
 export default app; 

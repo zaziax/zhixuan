@@ -28,7 +28,7 @@ export const rateLimitConfig = {
 } as const;
 
 export const aiConfig = {
-  apiKey: process.env.ARK_API_KEY,
-  baseURL: "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  model: "xxxxxxxxxxxxxxxxxxxxxxxx"
+  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: process.env.OPENAI_BASE_URL,
+  model: process.env.MODEL
 }; 

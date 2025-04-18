@@ -57,7 +57,7 @@ ${hexagram.derived ?
 请先详细思考卦象与问题的关联，再给出完整解读。`;
 
     const stream = await client.chat.completions.create({
-      model: aiConfig.model,
+      model: aiConfig.model as string,
       messages: [
         {
           role: "system",

@@ -16,11 +16,6 @@
   - 本卦变卦解读
   - 结果导出为图片
 
-- 📊 访问统计
-  - 实时 PV/UV 统计
-  - 小时/日/周/月/年维度统计
-  - API 调用次数统计
-
 ## 技术栈
 
 ### 前端
@@ -50,7 +45,6 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 
 AI API配置
-NODE_ENV=模型名称
 OPENAI_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 OPENAI_API_KEY=your_api_key
 
@@ -149,11 +143,6 @@ json
 }
 }
 }
-
-### 统计接口
-- GET `/api/stats` - 获取统计数据
-- POST `/api/stats/increment` - 增加页面访问统计
-
 
 ├── client # 前端代码
 │ ├── public # 静态资源

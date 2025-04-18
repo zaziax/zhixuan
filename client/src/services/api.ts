@@ -68,11 +68,3 @@ export const fetchStats = async () => {
     throw error;
   }
 };
-
-export const incrementPageView = async (page: string) => {
-  try {
-    await axios.post(`${API_BASE_URL}/stats/increment`, { page });
-  } catch (error) {
-    console.error('Failed to increment page view:', error);
-  }
-};

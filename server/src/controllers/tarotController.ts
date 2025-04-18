@@ -27,7 +27,7 @@ export const getTarotReading = async (req: Request, res: Response) => {
 注意：请先详细思考每张牌的含义和关联，再给出最终解读。`;
 
     const stream = await client.chat.completions.create({
-      model: aiConfig.model,
+      model: aiConfig.model as string,
       messages: [
         { 
           role: "system", 
