@@ -1,6 +1,15 @@
 # 智玄 - AI 驱动的占卜系统
 
 智玄是一个结合人工智能与传统占卜术的现代化解读系统,目前支持塔罗牌和周易两种占卜方式。
+体验地址 https://zhixuan.zazia.cn
+
+## 效果预览
+![image](https://github.com/user-attachments/assets/79341440-a50d-4a59-8f7e-36233ab09e31)
+![image](https://github.com/user-attachments/assets/ae38b7fc-6287-4b1c-9594-53b65c28123e)
+![image](https://github.com/user-attachments/assets/7a645009-2507-494c-881f-16834e1e45f4)
+![image](https://github.com/user-attachments/assets/eaee9168-e42b-4083-b06b-b9d2ba2e2c65)
+![image](https://github.com/user-attachments/assets/b1cf9e6d-43b4-4599-86bb-46f60aa5c154)
+![image](https://github.com/user-attachments/assets/953e4ea2-6ae1-4bbe-9b29-7967bb6e6121)
 
 ## 功能特点
 
@@ -144,6 +153,7 @@ json
 }
 }
 
+```
 ├── client # 前端代码
 │ ├── public # 静态资源
 │ ├── src # 源代码
@@ -160,10 +170,8 @@ json
 │ ├── routes # 路由
 │ └── types # 类型定义
 └── package.json
+```
 
-## 许可证
-
-MIT License
 
 ## 其它信息
 本项目完全由ai生成。
